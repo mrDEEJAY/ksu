@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ксения — графический дизайнер</title>
-  <meta name="description" content="Портфолио Ксении — графический дизайнер. Айдентика, брендинг, типографика, UI/UX, иллюстрация, плакаты." />
-  <meta name="author" content="Ксения" />
+  <title>Ksenia — graphic designer</title>
+  <meta name="description" content="Portfolio of Ksenia — graphic designer. Identity, branding, typography, UI/UX, illustration, posters." />
+  <meta name="author" content="Ksenia" />
   <meta name="theme-color" content="#0A0A0A" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
@@ -23,21 +23,21 @@
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://bestdeejay-design.github.io/ksu/" />
-  <meta property="og:title" content="Ксения — графический дизайнер" />
-  <meta property="og:description" content="Портфолио графического дизайнера. Айдентика, брендинг, типографика, UI/UX, иллюстрация." />
+  <meta property="og:title" content="Ksenia — graphic designer" />
+  <meta property="og:description" content="Portfolio of graphic designer. Identity, branding, typography, UI/UX, illustration." />
   <meta property="og:image" content="https://bestdeejay-design.github.io/ksu/og-image.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta property="og:image:type" content="image/png" />
-  <meta property="og:locale" content="ru_RU" />
-  <meta property="og:site_name" content="Ксения — графический дизайнер" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:site_name" content="Ksenia — graphic designer" />
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Ксения — графический дизайнер" />
-  <meta name="twitter:description" content="Портфолио графического дизайнера. Айдентика, брендинг, типографика, UI/UX, иллюстрация." />
+  <meta name="twitter:title" content="Ksenia — graphic designer" />
+  <meta name="twitter:description" content="Portfolio of graphic designer. Identity, branding, typography, UI/UX, illustration." />
   <meta name="twitter:image" content="https://bestdeejay-design.github.io/ksu/og-image.png" />
-  <meta name="twitter:image:alt" content="Ксения — графический дизайнер" />
+  <meta name="twitter:image:alt" content="Ksenia — graphic designer" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -49,19 +49,18 @@
   <!-- NAV -->
   <nav class="nav">
     <div class="nav__inner">
-      <a href="#" class="nav__logo">Ксения</a>
-
+      <a href="#" class="nav__logo" data-i18n="nav.logo">Ksenia</a>
       <input type="checkbox" id="menu-toggle" class="menu-toggle" hidden />
       <label for="menu-toggle" class="menu-btn" aria-label="Menu">
         <span></span><span></span><span></span>
       </label>
-
       <div class="nav__links">
-        <a href="#about" class="nav__link" onclick="document.getElementById('menu-toggle').checked=false">Обо мне</a>
-        <a href="#works" class="nav__link" onclick="document.getElementById('menu-toggle').checked=false">Работы</a>
-        <a href="#references" class="nav__link" onclick="document.getElementById('menu-toggle').checked=false">Inspiration</a>
-        <a href="#contact" class="nav__link" onclick="document.getElementById('menu-toggle').checked=false">Контакты</a>
-        <button class="theme-toggle" id="theme-toggle" aria-label="Сменить тему">
+        <a href="#about" class="nav__link" data-i18n="nav.about" onclick="document.getElementById('menu-toggle').checked=false">About</a>
+        <a href="#works" class="nav__link" data-i18n="nav.works" onclick="document.getElementById('menu-toggle').checked=false">Works</a>
+        <a href="#references" class="nav__link" data-i18n="nav.inspiration" onclick="document.getElementById('menu-toggle').checked=false">Inspiration</a>
+        <a href="#contact" class="nav__link" data-i18n="nav.contact" onclick="document.getElementById('menu-toggle').checked=false">Contact</a>
+        <button class="lang-toggle" id="lang-toggle" data-i18n="nav.langBtn">RU</button>
+        <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
           <svg class="theme-toggle__icon theme-toggle__sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <circle cx="12" cy="12" r="5"/>
             <line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/>
@@ -86,19 +85,19 @@
       <div class="shape shape--4"></div>
     </div>
     <div class="hero__marquee" aria-hidden="true">
-      <div class="hero__marquee-track">
-        ПОРТФОЛИО • ПОРТФОЛИО • ПОРТФОЛИО • ПОРТФОЛИО • ПОРТФОЛИО • ПОРТФОЛИО •
-        ПОРТФОЛИО • ПОРТФОЛИО • ПОРТФОЛИО • ПОРТФОЛИО • ПОРТФОЛИО • ПОРТФОЛИО •
+      <div class="hero__marquee-track" data-i18n="hero.marquee">
+        PORTFOLIO • PORTFOLIO • PORTFOLIO • PORTFOLIO • PORTFOLIO • PORTFOLIO •
+        PORTFOLIO • PORTFOLIO • PORTFOLIO • PORTFOLIO • PORTFOLIO • PORTFOLIO •
       </div>
     </div>
     <div class="hero__inner">
       <h1 class="hero__title">
-        <span class="hero__name">Ксения</span>
-        <span class="hero__subtitle">графический<br/>дизайнер</span>
+        <span class="hero__name" data-i18n="hero.name">Ksenia</span>
+        <span class="hero__subtitle" data-i18n="hero.subtitle">graphic<br/>designer</span>
       </h1>
     </div>
     <div class="hero__scroll">
-      <span>Scroll</span>
+      <span data-i18n="hero.scroll">Scroll</span>
       <div class="hero__scroll-line"></div>
     </div>
   </section>
@@ -107,22 +106,22 @@
   <section class="about" id="about">
     <div class="about__inner">
       <div class="about__content">
-        <h2 class="section-label">Обо мне</h2>
-        <p class="about__text">
-          Привет! Меня зовут Ксения. Я графический дизайнер с острым чувством формы, цвета и композиции. 
-          Создаю визуальные решения, которые говорят громче слов — от айдентики и брендинга до цифровых интерфейсов и печатной графики.
+        <h2 class="section-label" data-i18n="about.label">About</h2>
+        <p class="about__text" data-i18n="about.p1">
+          Hi! My name is Ksenia. I'm a graphic designer with a sharp sense of form, color, and composition.
+          I create visual solutions that speak louder than words — from identity and branding to digital interfaces and print graphics.
         </p>
-        <p class="about__text">
-          В своей работе я соединяю смелую эстетику русского авангарда с современными минималистичными подходами. 
-          Каждый проект для меня — это диалог между смыслом и формой.
+        <p class="about__text" data-i18n="about.p2">
+          In my work, I combine bold aesthetics with modern minimalist approaches.
+          Every project is a dialogue between meaning and form.
         </p>
         <div class="about__tags">
-          <span class="tag">Айдентика</span>
-          <span class="tag">Брендинг</span>
-          <span class="tag">Типографика</span>
-          <span class="tag">UI/UX</span>
-          <span class="tag">Иллюстрация</span>
-          <span class="tag">Плакат</span>
+          <span class="tag" data-i18n="about.tag1">Identity</span>
+          <span class="tag" data-i18n="about.tag2">Branding</span>
+          <span class="tag" data-i18n="about.tag3">Typography</span>
+          <span class="tag" data-i18n="about.tag4">UI/UX</span>
+          <span class="tag" data-i18n="about.tag5">Illustration</span>
+          <span class="tag" data-i18n="about.tag6">Poster</span>
         </div>
       </div>
       <div class="about__visual">
@@ -136,8 +135,8 @@
   <!-- WORKS -->
   <section class="works" id="works">
     <div class="works__header">
-      <h2 class="section-label">Избранные проекты</h2>
-      <div class="works__count"><span id="works-count">12</span> работ</div>
+      <h2 class="section-label" data-i18n="works.label">Featured Projects</h2>
+      <div class="works__count"><span id="works-count">12</span> <span data-i18n="works.count">projects</span></div>
     </div>
     <div class="works__grid" id="works-grid"></div>
   </section>
@@ -145,20 +144,18 @@
   <!-- REFERENCES -->
   <section class="references" id="references">
     <div class="references__header">
-      <h2 class="section-label">Референсы</h2>
-      <p class="references__subtitle">Explore thousands of projects across all design disciplines</p>
+      <h2 class="section-label" data-i18n="refs.label">Inspiration</h2>
+      <p class="references__subtitle" data-i18n="refs.subtitle">Explore thousands of projects across all design disciplines</p>
     </div>
     <div class="references__grid" id="references-grid"></div>
-
     <div class="ref-section">
-      <h3 class="ref-section__title">Specialized Resources</h3>
-      <p class="ref-section__desc">Editorial picks, awards, and focused inspiration</p>
+      <h3 class="ref-section__title" data-i18n="refs.specialTitle">Specialized Resources</h3>
+      <p class="ref-section__desc" data-i18n="refs.specialDesc">Editorial picks, awards, and focused inspiration</p>
       <div class="ref-section__grid ref-section__grid--special" id="ref-special"></div>
     </div>
-
     <div class="ref-section">
-      <h3 class="ref-section__title">Moodboards & References</h3>
-      <p class="ref-section__desc">Services for collecting ideas and visual search</p>
+      <h3 class="ref-section__title" data-i18n="refs.boardsTitle">Moodboards & References</h3>
+      <p class="ref-section__desc" data-i18n="refs.boardsDesc">Services for collecting ideas and visual search</p>
       <div class="ref-section__grid ref-section__grid--boards" id="ref-boards"></div>
     </div>
   </section>
@@ -167,10 +164,10 @@
   <section class="contact" id="contact">
     <div class="contact__inner">
       <div class="contact__left">
-        <h2 class="section-label">Контакты</h2>
-        <p class="contact__text">
-          Открыта к сотрудничеству и новым проектам.<br/>
-          Пишите, буду рада обсудить вашу задачу.
+        <h2 class="section-label" data-i18n="contact.label">Contact</h2>
+        <p class="contact__text" data-i18n="contact.text">
+          Open to collaboration and new projects.<br/>
+          Feel free to write, I'd love to discuss your task.
         </p>
         <a href="mailto:ksu@ya.ru" class="contact__email">ksu@ya.ru</a>
         <a href="tel:+79811281636" class="contact__phone">+7 981 128-16-36</a>
@@ -193,8 +190,8 @@
   <!-- FOOTER -->
   <footer class="footer">
     <div class="footer__inner">
-      <span class="footer__copy">© 2026 Ксения</span>
-      <span class="footer__tagline">Графический дизайн</span>
+      <span class="footer__copy" data-i18n="footer.copy">© 2026 Ksenia</span>
+      <span class="footer__tagline" data-i18n="footer.tagline">Graphic Design</span>
     </div>
   </footer>
 
