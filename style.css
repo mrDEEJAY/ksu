@@ -172,18 +172,18 @@ button{border:none;background:none;cursor:pointer;color:inherit;font:inherit}
   mask-image:linear-gradient(to right,transparent,#000 5%,#000 95%,transparent);
   -webkit-mask-image:linear-gradient(to right,transparent,#000 5%,#000 95%,transparent)
 }
-.hero__marquee span{
+.hero__marquee-track{
   display:inline-block;
+  white-space:nowrap;
   font-family:'Unbounded',sans-serif;
   font-weight:200;font-size:14px;letter-spacing:.25em;
   color:var(--text-muted);
-  animation:marquee 25s linear infinite;
-  padding-right:50px
+  animation:marquee 30s linear infinite;
+  padding-right:0
 }
-.hero__marquee span:nth-child(2){animation-delay:-12.5s}
 @keyframes marquee{
   0%{transform:translateX(0)}
-  100%{transform:translateX(-100%)}
+  100%{transform:translateX(-50%)}
 }
 
 /* hero title */
