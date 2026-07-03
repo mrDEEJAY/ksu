@@ -448,24 +448,45 @@ button{border:none;background:none;cursor:pointer;color:inherit;font:inherit}
   color:var(--text-secondary);
   margin-bottom:auto
 }
-.ref-card__meta{
+.ref-card__links{
   display:flex;
-  justify-content:space-between;
-  align-items:center;
+  gap:8px;
   margin-top:20px;
   padding-top:16px;
   border-top:1px solid var(--border)
 }
-.ref-card__count{
-  font-size:12px;letter-spacing:.05em;
-  color:var(--text-muted)
+.ref-card__link{
+  flex:1;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:10px 16px;
+  border-radius:8px;
+  font-size:12px;
+  font-weight:600;
+  letter-spacing:.03em;
+  transition:all .3s;
+  text-decoration:none
 }
-.ref-card__arrow{
-  font-size:20px;
-  color:var(--accent);
-  transition:transform .3s
+.ref-card__link--be{
+  background:rgba(0,0,0,.2);
+  color:var(--text)
 }
-.ref-card:hover .ref-card__arrow{transform:translateX(6px)}
+.ref-card__link--be:hover{
+  background:#1769FF;
+  color:#fff
+}
+.ref-card__link--dr{
+  background:rgba(0,0,0,.2);
+  color:var(--text)
+}
+.ref-card__link--dr:hover{
+  background:#EA4C89;
+  color:#fff
+}
+
+[data-theme="light"] .ref-card__link--be{background:rgba(0,0,0,.05)}
+[data-theme="light"] .ref-card__link--dr{background:rgba(0,0,0,.05)}
 
 /* CONTACT */
 .contact{
@@ -603,8 +624,10 @@ button{border:none;background:none;cursor:pointer;color:inherit;font:inherit}
   .works__grid{grid-template-columns:repeat(2,1fr);gap:16px}
   .works__header{margin-bottom:40px}
   .references{padding:0 20px 100px}
-  .ref-card__inner{padding:24px 24px;min-height:140px}
+  .ref-card__inner{padding:20px;min-height:140px}
   .ref-card__cat{font-size:18px}
+  .ref-card__links{flex-direction:column}
+  .ref-card__link{padding:8px 14px;font-size:11px}
   .contact{padding:100px 20px}
   .contact__email{font-size:clamp(20px,6vw,32px)}
   .footer{padding:24px 20px}
