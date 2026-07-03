@@ -218,28 +218,34 @@ function generateKSAPromo() {
     <circle cx="340" cy="420" r="50" fill="none" stroke="#FF2D55" stroke-width=".5" opacity=".04">
       <animate attributeName="opacity" values=".04;.12;.04" dur="4s" repeatCount="indefinite"/>
     </circle>
-    <g transform="translate(18,60) scale(1.3,1.3)">
-      <path d="${glyphs.K}" fill="none" stroke="#fff" stroke-width="70" stroke-linecap="round" stroke-linejoin="round" opacity="0">
-        <animate attributeName="opacity" from="0" to="1" dur=".7s" fill="freeze"/>
-        <animateTransform attributeName="transform" type="translate" values="0,30;0,0" dur=".7s" fill="freeze"/>
-      </path>
+    <g transform="translate(10,90)">
+      <g>
+        <path d="${glyphs.K}" fill="none" stroke="#fff" stroke-width="55" stroke-linecap="round" stroke-linejoin="round" opacity="0">
+          <animate attributeName="opacity" from="0" to="1" dur=".7s" fill="freeze"/>
+          <animateTransform attributeName="transform" type="translate" values="0,20;0,0" dur=".7s" fill="freeze"/>
+        </path>
+      </g>
     </g>
-    <g transform="translate(132,10) scale(1.15,1.15)">
-      <path d="${glyphs.S}" fill="none" stroke="#fff" stroke-width="70" stroke-linecap="round" stroke-linejoin="round" opacity="0">
-        <animate attributeName="opacity" from="0" to="1" dur=".7s" begin=".12s" fill="freeze"/>
-        <animateTransform attributeName="transform" type="translate" values="0,-30;0,0" dur=".7s" begin=".12s" fill="freeze"/>
-      </path>
+    <g transform="translate(190,70)">
+      <g>
+        <path d="${glyphs.S}" fill="none" stroke="#fff" stroke-width="55" stroke-linecap="round" stroke-linejoin="round" opacity="0">
+          <animate attributeName="opacity" from="0" to="1" dur=".7s" begin=".12s" fill="freeze"/>
+          <animateTransform attributeName="transform" type="translate" values="0,-20;0,0" dur=".7s" begin=".12s" fill="freeze"/>
+        </path>
+      </g>
     </g>
-    <g transform="translate(105,90) scale(1.7,1.7)">
-      <path d="${glyphs.A}" fill="none" stroke="#FF2D55" stroke-width="65" stroke-linecap="round" stroke-linejoin="round" opacity="0">
-        <animate attributeName="opacity" from="0" to="1" dur=".7s" begin=".24s" fill="freeze"/>
-        <animateTransform attributeName="transform" type="scale" values=".6;1" dur=".7s" begin=".24s" fill="freeze"/>
-      </path>
+    <g transform="translate(90,175)">
+      <g>
+        <path d="${glyphs.A}" fill="none" stroke="#FF2D55" stroke-width="60" stroke-linecap="round" stroke-linejoin="round" opacity="0">
+          <animate attributeName="opacity" from="0" to="1" dur=".7s" begin=".24s" fill="freeze"/>
+          <animateTransform attributeName="transform" type="scale" values=".7;1" dur=".7s" begin=".24s" fill="freeze"/>
+        </path>
+      </g>
     </g>
-    <line x1="80" y1="380" x2="320" y2="380" stroke="#FF2D55" stroke-width="3" stroke-linecap="round" stroke-dasharray="240" stroke-dashoffset="240">
-      <animate attributeName="stroke-dashoffset" from="240" to="0" dur=".8s" begin=".45s" fill="freeze"/>
+    <line x1="60" y1="390" x2="340" y2="390" stroke="#FF2D55" stroke-width="2" stroke-linecap="round" stroke-dasharray="280" stroke-dashoffset="280">
+      <animate attributeName="stroke-dashoffset" from="280" to="0" dur=".8s" begin=".45s" fill="freeze"/>
     </line>
-    <text x="200" y="418" font-family="sans-serif" font-size="11" fill="rgba(255,255,255,.35)" text-anchor="middle" letter-spacing="8" opacity="0">
+    <text x="200" y="420" font-family="sans-serif" font-size="10" fill="rgba(255,255,255,.3)" text-anchor="middle" letter-spacing="10" opacity="0">
       TYPE SPECIMEN
       <animate attributeName="opacity" from="0" to="1" dur=".5s" begin=".8s" fill="freeze"/>
     </text>
