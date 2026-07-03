@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ксения — графический дизайнер</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='32' height='32' rx='4' fill='%23000'/%3E%3Ctext x='16' y='23' text-anchor='middle' font-family='system-ui' font-weight='900' font-size='20' fill='%23fff'%3EK%3C/text%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@200..900&family=Inter:wght@300..700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="nav__inner">
+      <a href="#" class="nav__logo">Ксения</a>
+      <div class="nav__links">
+        <a href="#about" class="nav__link">Обо мне</a>
+        <a href="#works" class="nav__link">Работы</a>
+        <a href="#contact" class="nav__link">Контакты</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="hero">
+    <div class="hero__shapes">
+      <div class="shape shape--1"></div>
+      <div class="shape shape--2"></div>
+      <div class="shape shape--3"></div>
+      <div class="shape shape--4"></div>
+    </div>
+    <div class="hero__inner">
+      <div class="hero__marquee" aria-hidden="true">
+        <span>ПОРТФОЛИО • ПОРТФОЛИО • ПОРТФОЛИО • ПОРТФОЛИО •</span>
+        <span>ПОРТФОЛИО • ПОРТФОЛИО • ПОРТФОЛИО • ПОРТФОЛИО •</span>
+      </div>
+      <h1 class="hero__title">
+        <span class="hero__name">Ксения</span>
+        <span class="hero__subtitle">графический<br/>дизайнер</span>
+      </h1>
+    </div>
+    <div class="hero__scroll">
+      <span>Scroll</span>
+      <div class="hero__scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about" id="about">
+    <div class="about__inner">
+      <div class="about__content">
+        <h2 class="section-label">Обо мне</h2>
+        <p class="about__text">
+          Привет! Меня зовут Ксения. Я графический дизайнер с острым чувством формы, цвета и композиции. 
+          Создаю визуальные решения, которые говорят громче слов — от айдентики и брендинга до цифровых интерфейсов и печатной графики.
+        </p>
+        <p class="about__text">
+          В своей работе я соединяю смелую эстетику русского авангарда с современными минималистичными подходами. 
+          Каждый проект для меня — это диалог между смыслом и формой.
+        </p>
+        <div class="about__tags">
+          <span class="tag">Айдентика</span>
+          <span class="tag">Брендинг</span>
+          <span class="tag">Типографика</span>
+          <span class="tag">UI/UX</span>
+          <span class="tag">Иллюстрация</span>
+          <span class="tag">Плакат</span>
+        </div>
+      </div>
+      <div class="about__visual">
+        <div class="about__shape about__shape--1"></div>
+        <div class="about__shape about__shape--2"></div>
+        <div class="about__shape about__shape--3"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WORKS -->
+  <section class="works" id="works">
+    <div class="works__header">
+      <h2 class="section-label">Избранные проекты</h2>
+      <div class="works__count"><span id="works-count">12</span> работ</div>
+    </div>
+    <div class="works__grid" id="works-grid"></div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact" id="contact">
+    <div class="contact__inner">
+      <div class="contact__left">
+        <h2 class="section-label">Контакты</h2>
+        <p class="contact__text">
+          Открыта к сотрудничеству и новым проектам.<br/>
+          Пишите, буду рада обсудить вашу задачу.
+        </p>
+        <a href="mailto:ksu@ya.ru" class="contact__email">ksu@ya.ru</a>
+        <div class="contact__socials">
+          <a href="#" class="contact__social" aria-label="Behance">Be</a>
+          <a href="#" class="contact__social" aria-label="Dribbble">Dr</a>
+          <a href="#" class="contact__social" aria-label="Instagram">Ig</a>
+          <a href="#" class="contact__social" aria-label="Telegram">Tg</a>
+        </div>
+      </div>
+      <div class="contact__right">
+        <div class="contact__shape contact__shape--1"></div>
+        <div class="contact__shape contact__shape--2"></div>
+        <div class="contact__shape contact__shape--3"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer__inner">
+      <span class="footer__copy">© 2026 Ксения</span>
+      <span class="footer__tagline">Графический дизайн</span>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
