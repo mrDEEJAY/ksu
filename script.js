@@ -268,6 +268,107 @@ buildResourceSection('ref-boards', boardResources)
 // Apply language on load
 applyLanguage()
 
+// PROJECT OVERLAY
+const overlay = document.getElementById('project-overlay')
+const overlayContent = document.getElementById('overlay-content')
+const overlayClose = document.getElementById('overlay-close')
+
+function openProject(index) {
+  const html = getProjectHTML(index)
+  if (!html) return
+  overlayContent.innerHTML = html
+  overlay.classList.add('overlay--open')
+  document.body.style.overflow = 'hidden'
+  window.scrollTo({ top: 0 })
+}
+
+function closeProject() {
+  overlay.classList.remove('overlay--open')
+  document.body.style.overflow = ''
+}
+
+overlayClose.addEventListener('click', closeProject)
+overlay.addEventListener('click', (e) => {
+  if (e.target === overlay) closeProject()
+})
+
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') closeProject()
+})
+
+// add click to work cards
+document.querySelectorAll('.work-card').forEach((card, i) => {
+  // only project 5 (index 4) has content for now
+  if (i === 4) {
+    card.style.cursor = 'pointer'
+    card.addEventListener('click', () => openProject(i))
+  }
+})
+
+function getProjectHTML(index) {
+  if (index !== 4) return null
+
+  const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789.,!?'
+  const charHTML = chars.split('').map(c => `<span class="proj-char">${c}</span>`).join('')
+
+  const weights = [
+    { name: 'Thin', weight: 200, size: 28 },
+    { name: 'Light', weight: 300, size: 28 },
+    { name: 'Regular', weight: 400, size: 28 },
+    { name: 'Medium', weight: 500, size: 26 },
+    { name: 'Bold', weight: 700, size: 24 },
+    { name: 'Black', weight: 900, size: 20 }
+  ]
+
+  const weightsHTML = weights.map(w => `
+    <div class="proj-weight">
+      <div class="proj-weight__name">${w.name}</div>
+      <div class="proj-weight__sample" style="font-weight:${w.weight};font-size:${w.size}px">The quick brown fox jumps over the lazy dog</div>
+    </div>
+  `).join('')
+
+  const langText = lang === 'ru' ? `
+    <p>Гарнитура KSA — это геометрический гротеск, вдохновлённый эстетикой русского авангарда и швейцарской школы типографики. Отличается строгими пропорциями, выраженной контрастностью и широкими возможностями для использования в заголовках и навигации.</p>
+    <p style="margin-top:12px">Подходит для айдентики, цифровых интерфейсов, плакатов and editorial-дизайна. Включает 6 начертаний — от Thin до Black.</p>
+  ` : `
+    <p>KSA is a geometric sans-serif typeface inspired by Russian avant-garde aesthetics and Swiss typography. It features strict proportions, clear contrast, and wide versatility for headlines and navigation.</p>
+    <p style="margin-top:12px">Suitable for branding, digital interfaces, posters, and editorial design. Includes 6 weights — from Thin to Black.</p>
+  `
+
+  return `
+    <div class="proj-hero">
+      <div class="proj-hero__label">${lang === 'ru' ? 'Типографика' : 'Typography'}</div>
+      <div class="proj-hero__title">KSA</div>
+      <div class="proj-hero__sub">${lang === 'ru' ? 'Геометрический гротеск' : 'Geometric Sans-Serif'} · 6 ${lang === 'ru' ? 'начертаний' : 'weights'}</div>
+    </div>
+
+    <div class="proj-section">
+      <div class="proj-section__title">${lang === 'ru' ? 'Глифы' : 'Glyphs'}</div>
+      <div class="proj-chars">${charHTML}</div>
+    </div>
+
+    <div class="proj-section">
+      <div class="proj-section__title">${lang === 'ru' ? 'Начертания' : 'Weights'}</div>
+      <div class="proj-weights">${weightsHTML}</div>
+    </div>
+
+    <div class="proj-section">
+      <div class="proj-section__title">${lang === 'ru' ? 'Специмен' : 'Specimen'}</div>
+      <div class="proj-specimen">
+        <div class="proj-specimen__line" style="font-size:clamp(32px,6vw,64px);font-weight:900;font-family:'Unbounded',sans-serif;letter-spacing:-.03em">KSA Typeface</div>
+        <div class="proj-specimen__line" style="font-size:clamp(20px,3vw,36px);font-weight:600;font-family:'Unbounded',sans-serif;letter-spacing:-.01em">KSA Шрифт — геометрический гротеск</div>
+        <div class="proj-specimen__line" style="font-size:clamp(14px,2vw,22px);font-weight:400;color:var(--text-secondary)">The quick brown fox jumps over the lazy dog. 1234567890</div>
+        <div class="proj-specimen__line" style="font-size:clamp(11px,1.2vw,16px);font-weight:300;color:var(--text-muted);letter-spacing:.05em;text-transform:uppercase">A B C D E F G H I J K L M N O P Q R S T U V W X Y Z</div>
+      </div>
+    </div>
+
+    <div class="proj-section">
+      <div class="proj-section__title">${lang === 'ru' ? 'О шрифте' : 'About'}</div>
+      <div class="proj-specimen" style="font-size:15px;line-height:1.8;color:var(--text-secondary)">${langText}</div>
+    </div>
+  `
+}
+
 // SCROLL REVEAL
 const revealEls = document.querySelectorAll(
   '.about__content > *, .about__visual > *, .works__header, .work-card, .references__header, .ref-card, .ref-section, .ref-mini, .contact__left > *, .contact__right > *'
