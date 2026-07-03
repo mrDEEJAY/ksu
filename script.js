@@ -207,7 +207,6 @@ function generateAbstractSVG(index, colors) {
 }
 
 function generateKSAPromo() {
-  // Geometric sans-serif vector paths for K, S, A
   const glyphs = {
     K: 'M30,0 L30,400 M30,200 L170,20 M30,230 L160,390',
     S: 'M160,20 Q60,20 60,100 Q60,180 170,200 Q70,220 70,300 Q70,380 160,380',
@@ -215,35 +214,35 @@ function generateKSAPromo() {
   }
 
   return encodeURIComponent(`<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg">
-    <defs>
-      <style>
-        @keyframes kUp{0%{opacity:0;transform:translateY(40px)}100%{opacity:1;transform:translateY(0)}}
-        @keyframes sDown{0%{opacity:0;transform:translateY(-40px)}100%{opacity:1;transform:translateY(0)}}
-        @keyframes aZoom{0%{opacity:0;transform:scale(.6)}100%{opacity:1;transform:scale(1)}}
-        @keyframes drawL{0%{stroke-dashoffset:140}100%{stroke-dashoffset:0}}
-        @keyframes subIn{0%{opacity:0;transform:translateY(12px)}100%{opacity:1;transform:translateY(0)}}
-        @keyframes orbP{0%,100%{opacity:.04}50%{opacity:.12}}
-        .k{animation:kUp .7s cubic-bezier(.25,.1,.25,1) both}
-        .s{animation:sDown .7s cubic-bezier(.25,.1,.25,1) .12s both}
-        .a{animation:aZoom .7s cubic-bezier(.25,.1,.25,1) .24s both}
-        .line{stroke-dasharray:140;animation:drawL .8s ease-out .45s both}
-        .sub{animation:subIn .5s ease-out .8s both}
-        .o1{animation:orbP 4s ease-in-out infinite}
-      </style>
-    </defs>
     <rect width="400" height="500" fill="#0A0A0A"/>
-    <circle cx="340" cy="420" r="50" fill="none" stroke="#FF2D55" stroke-width=".5" class="o1" style="opacity:.04"/>
-    <g class="k" transform="translate(20,55) scale(1.3,1.3)">
-      <path d="${glyphs.K}" fill="none" stroke="#fff" stroke-width="70" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="340" cy="420" r="50" fill="none" stroke="#FF2D55" stroke-width=".5" opacity=".04">
+      <animate attributeName="opacity" values=".04;.12;.04" dur="4s" repeatCount="indefinite"/>
+    </circle>
+    <g transform="translate(18,60) scale(1.3,1.3)">
+      <path d="${glyphs.K}" fill="none" stroke="#fff" stroke-width="70" stroke-linecap="round" stroke-linejoin="round" opacity="0">
+        <animate attributeName="opacity" from="0" to="1" dur=".7s" fill="freeze"/>
+        <animateTransform attributeName="transform" type="translate" values="0,30;0,0" dur=".7s" fill="freeze"/>
+      </path>
     </g>
-    <g class="s" transform="translate(140,5) scale(1.15,1.15)">
-      <path d="${glyphs.S}" fill="none" stroke="#fff" stroke-width="70" stroke-linecap="round" stroke-linejoin="round"/>
+    <g transform="translate(132,10) scale(1.15,1.15)">
+      <path d="${glyphs.S}" fill="none" stroke="#fff" stroke-width="70" stroke-linecap="round" stroke-linejoin="round" opacity="0">
+        <animate attributeName="opacity" from="0" to="1" dur=".7s" begin=".12s" fill="freeze"/>
+        <animateTransform attributeName="transform" type="translate" values="0,-30;0,0" dur=".7s" begin=".12s" fill="freeze"/>
+      </path>
     </g>
-    <g class="a" transform="translate(140,80) scale(1.6,1.6)">
-      <path d="${glyphs.A}" fill="none" stroke="#FF2D55" stroke-width="65" stroke-linecap="round" stroke-linejoin="round"/>
+    <g transform="translate(105,90) scale(1.7,1.7)">
+      <path d="${glyphs.A}" fill="none" stroke="#FF2D55" stroke-width="65" stroke-linecap="round" stroke-linejoin="round" opacity="0">
+        <animate attributeName="opacity" from="0" to="1" dur=".7s" begin=".24s" fill="freeze"/>
+        <animateTransform attributeName="transform" type="scale" values=".6;1" dur=".7s" begin=".24s" fill="freeze"/>
+      </path>
     </g>
-    <line x1="80" y1="380" x2="320" y2="380" stroke="#FF2D55" stroke-width="3" stroke-linecap="round" class="line"/>
-    <text x="200" y="420" font-family="sans-serif" font-size="11" fill="rgba(255,255,255,.35)" text-anchor="middle" letter-spacing="8" class="sub">TYPE SPECIMEN</text>
+    <line x1="80" y1="380" x2="320" y2="380" stroke="#FF2D55" stroke-width="3" stroke-linecap="round" stroke-dasharray="240" stroke-dashoffset="240">
+      <animate attributeName="stroke-dashoffset" from="240" to="0" dur=".8s" begin=".45s" fill="freeze"/>
+    </line>
+    <text x="200" y="418" font-family="sans-serif" font-size="11" fill="rgba(255,255,255,.35)" text-anchor="middle" letter-spacing="8" opacity="0">
+      TYPE SPECIMEN
+      <animate attributeName="opacity" from="0" to="1" dur=".5s" begin=".8s" fill="freeze"/>
+    </text>
   </svg>`)
 }
 
