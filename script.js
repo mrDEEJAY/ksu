@@ -218,34 +218,34 @@ function generateKSAPromo() {
     <circle cx="340" cy="420" r="50" fill="none" stroke="#FF2D55" stroke-width=".5" opacity=".04">
       <animate attributeName="opacity" values=".04;.12;.04" dur="4s" repeatCount="indefinite"/>
     </circle>
-    <g transform="translate(10,90)">
+    <g transform="translate(10,50)">
       <g>
-        <path d="${glyphs.K}" fill="none" stroke="#fff" stroke-width="55" stroke-linecap="round" stroke-linejoin="round" opacity="0">
+        <path d="${glyphs.K}" fill="none" stroke="#fff" stroke-width="50" stroke-linecap="round" stroke-linejoin="round" opacity="0">
           <animate attributeName="opacity" from="0" to="1" dur=".7s" fill="freeze"/>
-          <animateTransform attributeName="transform" type="translate" values="0,20;0,0" dur=".7s" fill="freeze"/>
+          <animateTransform attributeName="transform" type="translate" values="0,15;0,0" dur=".7s" fill="freeze"/>
         </path>
       </g>
     </g>
-    <g transform="translate(190,70)">
+    <g transform="translate(195,40)">
       <g>
-        <path d="${glyphs.S}" fill="none" stroke="#fff" stroke-width="55" stroke-linecap="round" stroke-linejoin="round" opacity="0">
+        <path d="${glyphs.S}" fill="none" stroke="#fff" stroke-width="50" stroke-linecap="round" stroke-linejoin="round" opacity="0">
           <animate attributeName="opacity" from="0" to="1" dur=".7s" begin=".12s" fill="freeze"/>
-          <animateTransform attributeName="transform" type="translate" values="0,-20;0,0" dur=".7s" begin=".12s" fill="freeze"/>
+          <animateTransform attributeName="transform" type="translate" values="0,-15;0,0" dur=".7s" begin=".12s" fill="freeze"/>
         </path>
       </g>
     </g>
-    <g transform="translate(90,175)">
+    <g transform="translate(100,120)">
       <g>
-        <path d="${glyphs.A}" fill="none" stroke="#FF2D55" stroke-width="60" stroke-linecap="round" stroke-linejoin="round" opacity="0">
+        <path d="${glyphs.A}" fill="none" stroke="#FF2D55" stroke-width="55" stroke-linecap="round" stroke-linejoin="round" opacity="0">
           <animate attributeName="opacity" from="0" to="1" dur=".7s" begin=".24s" fill="freeze"/>
           <animateTransform attributeName="transform" type="scale" values=".7;1" dur=".7s" begin=".24s" fill="freeze"/>
         </path>
       </g>
     </g>
-    <line x1="60" y1="390" x2="340" y2="390" stroke="#FF2D55" stroke-width="2" stroke-linecap="round" stroke-dasharray="280" stroke-dashoffset="280">
-      <animate attributeName="stroke-dashoffset" from="280" to="0" dur=".8s" begin=".45s" fill="freeze"/>
+    <line x1="50" y1="330" x2="350" y2="330" stroke="#FF2D55" stroke-width="2" stroke-linecap="round" stroke-dasharray="300" stroke-dashoffset="300">
+      <animate attributeName="stroke-dashoffset" from="300" to="0" dur=".8s" begin=".45s" fill="freeze"/>
     </line>
-    <text x="200" y="420" font-family="sans-serif" font-size="10" fill="rgba(255,255,255,.3)" text-anchor="middle" letter-spacing="10" opacity="0">
+    <text x="200" y="355" font-family="sans-serif" font-size="10" fill="rgba(255,255,255,.3)" text-anchor="middle" letter-spacing="10" opacity="0">
       TYPE SPECIMEN
       <animate attributeName="opacity" from="0" to="1" dur=".5s" begin=".8s" fill="freeze"/>
     </text>
