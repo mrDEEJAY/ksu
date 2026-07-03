@@ -148,14 +148,19 @@ langBtn.addEventListener('click', () => {
 })
 
 function rebuildLangContent() {
-  const grid = document.getElementById('references-grid')
-  grid.innerHTML = ''
+  const refGrid = document.getElementById('references-grid')
+  refGrid.innerHTML = ''
   buildReferences()
 
   document.getElementById('ref-special').innerHTML = ''
   document.getElementById('ref-boards').innerHTML = ''
   buildResourceSection('ref-special', specialResources)
   buildResourceSection('ref-boards', boardResources)
+
+  const worksGrid = document.getElementById('works-grid')
+  worksGrid.innerHTML = ''
+  buildWorks()
+  setupProjectClicks()
 }
 
 // THEME TOGGLE
@@ -172,18 +177,18 @@ toggle.addEventListener('click', () => {
 
 // PROJECTS
 const projects = [
-  { title: 'Branding NOVA', categoryEn: 'Branding', categoryRu: 'Брендинг', colors: ['var(--accent)', 'var(--accent2)'] },
-  { title: 'Poster «Form»', categoryEn: 'Poster', categoryRu: 'Плакат', colors: ['var(--accent3)', 'var(--accent)'] },
-  { title: 'UI for Gallery', categoryEn: 'UI/UX', categoryRu: 'UX/UI', colors: ['var(--accent2)', 'var(--accent3)'] },
-  { title: 'Packaging LINO', categoryEn: 'Packaging', categoryRu: 'Упаковка', colors: ['var(--accent)', '#fff'] },
-  { title: 'Typeface KSA', categoryEn: 'Typography', categoryRu: 'Типографика', colors: ['var(--accent2)', 'var(--accent)'] },
-  { title: 'Brochure V/A', categoryEn: 'Editorial', categoryRu: 'Вёрстка', colors: ['var(--accent3)', 'var(--accent2)'] },
-  { title: 'Merch DESNA', categoryEn: 'Merch', categoryRu: 'Мерч', colors: ['#fff', 'var(--accent)'] },
-  { title: 'Illustration «Rhythm»', categoryEn: 'Illustration', categoryRu: 'Иллюстрация', colors: ['var(--accent3)', 'var(--accent2)'] },
-  { title: 'Studio Website', categoryEn: 'UI/UX', categoryRu: 'UX/UI', colors: ['var(--accent)', 'var(--accent3)'] },
-  { title: 'Expo «Shift»', categoryEn: 'Exhibition', categoryRu: 'Экспозиция', colors: ['var(--accent2)', '#fff'] },
-  { title: 'Identity ZERO', categoryEn: 'Branding', categoryRu: 'Брендинг', colors: ['var(--accent3)', 'var(--accent)'] },
-  { title: 'Book «Color»', categoryEn: 'Editorial', categoryRu: 'Издание', colors: ['var(--accent)', 'var(--accent2)'] }
+  { titleEn: 'Branding NOVA', titleRu: 'Брендинг NOVA', categoryEn: 'Branding', categoryRu: 'Брендинг', colors: ['var(--accent)', 'var(--accent2)'] },
+  { titleEn: 'Poster «Form»', titleRu: 'Плакат «Форма»', categoryEn: 'Poster', categoryRu: 'Плакат', colors: ['var(--accent3)', 'var(--accent)'] },
+  { titleEn: 'UI for Gallery', titleRu: 'UI для галереи', categoryEn: 'UI/UX', categoryRu: 'UX/UI', colors: ['var(--accent2)', 'var(--accent3)'] },
+  { titleEn: 'Packaging LINO', titleRu: 'Упаковка LINO', categoryEn: 'Packaging', categoryRu: 'Упаковка', colors: ['var(--accent)', '#fff'] },
+  { titleEn: 'Typeface KSA', titleRu: 'Шрифт KSA', categoryEn: 'Typography', categoryRu: 'Типографика', colors: ['var(--accent2)', 'var(--accent)'] },
+  { titleEn: 'Brochure V/A', titleRu: 'Брошюра V/A', categoryEn: 'Editorial', categoryRu: 'Вёрстка', colors: ['var(--accent3)', 'var(--accent2)'] },
+  { titleEn: 'Merch DESNA', titleRu: 'Мерч DESNA', categoryEn: 'Merch', categoryRu: 'Мерч', colors: ['#fff', 'var(--accent)'] },
+  { titleEn: 'Illustration «Rhythm»', titleRu: 'Иллюстрация «Ритм»', categoryEn: 'Illustration', categoryRu: 'Иллюстрация', colors: ['var(--accent3)', 'var(--accent2)'] },
+  { titleEn: 'Studio Website', titleRu: 'Сайт студии', categoryEn: 'UI/UX', categoryRu: 'UX/UI', colors: ['var(--accent)', 'var(--accent3)'] },
+  { titleEn: 'Expo «Shift»', titleRu: 'Выставка «Сдвиг»', categoryEn: 'Exhibition', categoryRu: 'Экспозиция', colors: ['var(--accent2)', '#fff'] },
+  { titleEn: 'Identity ZERO', titleRu: 'Айдентика ZERO', categoryEn: 'Branding', categoryRu: 'Брендинг', colors: ['var(--accent3)', 'var(--accent)'] },
+  { titleEn: 'Book «Color»', titleRu: 'Книга «Цвет»', categoryEn: 'Editorial', categoryRu: 'Издание', colors: ['var(--accent)', 'var(--accent2)'] }
 ]
 
 function generateAbstractSVG(index, colors) {
@@ -251,13 +256,14 @@ function buildWorks() {
     if (isKSA) card.setAttribute('data-interactive', '')
     const svg = isKSA ? generateKSAPromo() : generateAbstractSVG(i, p.colors)
     const cat = lang === 'ru' ? p.categoryRu : p.categoryEn
+    const title = lang === 'ru' ? (p.titleRu || p.titleEn) : p.titleEn
     const num = String(i + 1).padStart(2, '0')
     card.innerHTML = `
       <div class="work-card__visual"><div class="wv" style="background-image:url('data:image/svg+xml,${svg}');background-size:cover;background-position:center"></div></div>
       <div class="work-card__inner">
         <div class="work-card__num">${num}</div>
         <div class="work-card__category">${cat}</div>
-        <div class="work-card__title">${p.title}</div>
+        <div class="work-card__title">${title}</div>
         <div class="work-card__line"></div>
       </div>`
     grid.appendChild(card)
@@ -339,12 +345,14 @@ document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape') closeProject()
 })
 
-// add click to work cards
-document.querySelectorAll('.work-card').forEach((card, i) => {
-  if (i === 4) {
-    card.addEventListener('click', () => openProject(i))
-  }
-})
+function setupProjectClicks() {
+  document.querySelectorAll('.work-card').forEach((card, i) => {
+    if (i === 4) {
+      card.addEventListener('click', () => openProject(i))
+    }
+  })
+}
+setupProjectClicks()
 
 // Vector glyph paths for KSA typeface (geometric sans-serif)
 const glyphPaths = {
