@@ -201,12 +201,49 @@ function generateAbstractSVG(index, colors) {
   return encodeURIComponent(`<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%">${selected.join('')}</svg>`)
 }
 
+function generateKSAPromo() {
+  return encodeURIComponent(`<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <style>
+        @keyframes kUp{0%{opacity:0;transform:translateY(40px)}100%{opacity:1;transform:translateY(0)}}
+        @keyframes sDown{0%{opacity:0;transform:translateY(-40px)}100%{opacity:1;transform:translateY(0)}}
+        @keyframes aZoom{0%{opacity:0;transform:scale(.6)}100%{opacity:1;transform:scale(1)}}
+        @keyframes drawL{0%{stroke-dashoffset:140}100%{stroke-dashoffset:0}}
+        @keyframes subIn{0%{opacity:0;transform:translateY(12px)}100%{opacity:1;transform:translateY(0)}}
+        @keyframes orbP{0%,100%{opacity:.04}50%{opacity:.12}}
+        @keyframes orbM{0%,100%{transform:translate(0,0)}50%{transform:translate(15px,-15px)}}
+        .k{animation:kUp .7s cubic-bezier(.25,.1,.25,1) both}
+        .s{animation:sDown .7s cubic-bezier(.25,.1,.25,1) .12s both}
+        .a{animation:aZoom .7s cubic-bezier(.25,.1,.25,1) .24s both}
+        .line{stroke-dasharray:140;animation:drawL .8s ease-out .45s both}
+        .sub{animation:subIn .5s ease-out .8s both}
+        .o1{animation:orbP 4s ease-in-out infinite;animation-delay:0s}
+        .o2{animation:orbP 4s ease-in-out infinite;animation-delay:2s}
+        .o3{animation:orbM 6s ease-in-out infinite}
+        .o4{animation:orbM 5s ease-in-out infinite 1s}
+      </style>
+    </defs>
+    <rect width="400" height="500" fill="#0A0A0A"/>
+    <circle cx="90" cy="100" r="70" fill="none" stroke="#FF2D55" stroke-width=".5" class="o1"/>
+    <circle cx="340" cy="420" r="50" fill="none" stroke="#FF2D55" stroke-width=".5" class="o2"/>
+    <rect x="20" y="20" width="60" height="60" fill="none" stroke="#FF2D55" stroke-width=".5" opacity=".05" transform="rotate(15,50,50)" class="o3"/>
+    <rect x="320" y="60" width="40" height="40" fill="none" stroke="#FFD633" stroke-width=".5" opacity=".05" transform="rotate(-10,340,80)" class="o4"/>
+    <text x="80" y="290" font-family="sans-serif" font-weight="900" font-size="170" fill="#fff" class="k">K</text>
+    <text x="195" y="190" font-family="sans-serif" font-weight="900" font-size="170" fill="#fff" class="s">S</text>
+    <text x="270" y="350" font-family="sans-serif" font-weight="900" font-size="200" fill="#FF2D55" class="a">A</text>
+    <line x1="80" y1="380" x2="320" y2="380" stroke="#FF2D55" stroke-width="3" stroke-linecap="round" class="line"/>
+    <text x="200" y="420" font-family="sans-serif" font-size="11" fill="rgba(255,255,255,.35)" text-anchor="middle" letter-spacing="8" class="sub">TYPE SPECIMEN</text>
+  </svg>`)
+}
+
 function buildWorks() {
   const grid = document.getElementById('works-grid')
   projects.forEach((p, i) => {
     const card = document.createElement('div')
+    const isKSA = i === 4
     card.className = `work-card wc-${i + 1}`
-    const svg = generateAbstractSVG(i, p.colors)
+    if (isKSA) card.setAttribute('data-interactive', '')
+    const svg = isKSA ? generateKSAPromo() : generateAbstractSVG(i, p.colors)
     const cat = lang === 'ru' ? p.categoryRu : p.categoryEn
     const num = String(i + 1).padStart(2, '0')
     card.innerHTML = `
@@ -298,9 +335,7 @@ document.addEventListener('keydown', (e) => {
 
 // add click to work cards
 document.querySelectorAll('.work-card').forEach((card, i) => {
-  // only project 5 (index 4) has content for now
   if (i === 4) {
-    card.style.cursor = 'pointer'
     card.addEventListener('click', () => openProject(i))
   }
 })
